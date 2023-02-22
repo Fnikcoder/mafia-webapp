@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "striped-micron-310912",
+  "private_key_id": "f34876a5b38217d22f60f21351ba345f9fffa988",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQC1YbSkRrTlzcKV\nZTsbrYhWNvvdu+CBLREzkE9J7qAPk7wTVlhbx6EaEVj2u+RPxRi+S+gRZFdMd23U\nczDkXExFfNI/yhId40eKR1pCAzqgmhOrjhDzlwRj3u3kC9XHWy/+eE9BKYAQ++OW\n5fqORsiATYzWJwPF99InIhNQce3617KyJFtLC6MMLIhfV1PgdRUnBf5u4a+E5Yto\n7oJnlxsGu0D6lP5wVIAPKQ27OdA7U/3MJ1VucZHb37t5rbPRSyDM3mhxuEzEa8V/\n877SWZ9MrytOVojnaLuf7VWxKRHGX1sXdkfLBCUPKzhgKQuVHRY08Kdx1UiEszbO\nEd01soO5AgMBAAECggEAFae/KffZJDCvQSfvaSwMQYLaCkyijrmjOp1JoiGP0ZxJ\nUaO28+o/JT4Z+YdQSGfXPu0QHXd15sbBgaJpHXKZlphC/+Ovywq2IV/IemYpS0Bq\nBcr14idPGl9k1pvFH8KW1dJmX/jE9gIk14DIq9DuokbgADdzP2EJoatzU+DuUUrY\njQkjtWzJKGDbE9E3nM7mL615qRdXAUWEKbL5jFS7MdNEhmI20kx3RDkmRg/Q/uUn\ndd90aMulmUEjXMNW5H8AoZMCTghwKMGmDGeVsaBtV0D5VlFqK49rnfl2i6oEyMfC\nGmXvXG6mXqv2B7ReJGAZqjyyFI5nXjx7ojlUaSPdyQKBgQDz38Ni0/H8Xf1mnOeC\nVjfHUr/I0GbqyVJPaqt98MrGC6+9Q+eDRk9xWTmehGCeoDq8ySdILYo8uxGqrVFE\nMhsXcWRvO4DOsrgs3Wus7zxZ4Esz5KC9ysAoIJnypL+aM8i9aSUNm3zfu1EeuCo6\n5ykkVFhAfDqyQstgeydwqjwyVQKBgQC+ZnxdGlh3agyIyDOrUyikmBndp70ZvwKC\ncZ67ybZP5CTPauER/hY3PeWJk+1thYACPelJj31lW//9NB5qGRCO061HY7PtmPq2\n8jYTc2EYnEua6QoTH+DUGhxa4ZlE9v9qKWZz3xM6OcgMvmCtz4/9pQmHnqxfG2sF\n9EO00bsX1QKBgQDb4js21kZu9wfNB1etqrMsIq4ND+pbcx2lwVXSfdM2cb8IdTs+\nn5xtZLeQ92ZuX6XWJcAnUfg7/adWLmMBi/PlVTXrHMlslLN+sD2vdR0DJDpqFY/g\nz/gltg9YObcP//TU4wKnnDQhPbFMc1yQM3Bi8zGHIvuBUrwwx5mt+a/A6QKBgDpR\nF5xImnoQ0EAA2dqKwPMQ5zM90iyVlYYwmMa5tI5puWCSQteI9HL9EVX/KgSWlCub\nnN18BpNKB3EdSoeCn9CvQu6Puid26KuqKifw+fdYv8t1vzE2XV15ld+8I369DGQO\nxCOPWstFsWE92kzCOz8cEnwofHEw66nKNAapCl31AoGAFMP8k/4ixg3NvPlLejtA\n61r01mtTKaccE3QQAcs6S0tKatpItV6PuuOb8S6w9rNvdiYk5fD9CokzNtaMbzE2\nDrkhFf7iTp6Wba6oy3ArCzBzyXnTSR3BwFpo6bOh3satYA5sNa1Q2jiLyVTEswba\nsUwOIFjMuDilcrO1/GSHA4Q=\n-----END PRIVATE KEY-----\n",
+  "client_email": "striped-micron-310912@appspot.gserviceaccount.com",
+  "client_id": "112474225005086207835",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/striped-micron-310912%40appspot.gserviceaccount.com"
+}

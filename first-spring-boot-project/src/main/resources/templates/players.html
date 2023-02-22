@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+        <title>List Players</title>
+    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css" />
+    <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+
+        <div>
+<!--            <h1>Players information</h1>-->
+            <p><font size="5" face="arial" color="green">Players information</font></p>
+<!--            <h2>You can sort the table by clicking on each column</h2>-->
+            <p>You can sort the table by clicking on each column!</p>
+            <table class="table table-striped table-bordered">
+                <thead class="thead-dark">
+                <style>
+                  .table-container {
+                    position: relative;
+                    overflow-y: auto;
+                    height: auto; /* set a height for the container */
+                  }
+
+                  table {
+                    width: auto;-->
+                    border-collapse: collapse;
+                  }
+
+                  thead {
+                    position: sticky;
+                    top: 0;
+                    z-index: 1;
+                    background-color: #fff;
+                  }
+
+                  th {
+                    text-align: left;
+                    padding: 8px;
+                    border: 1px solid #ddd;
+                  }
+
+                  td {
+                    padding: 8px;
+                    border: 1px solid #ddd;
+                  }
+                </style>
+
+
+                <tr>
+                    <th><button class="sort-button" th:attr="data-sort='nickname'">Nickname</button></th>
+<!--                    <th><button class="sort-button" th:attr="data-sort='ranking_place'">Ranking place</button></th>-->
+                    <th><button class="sort-button" th:attr="data-sort='got_role_citizen_num'">#citizen roles</button></th>
+                    <th><button class="sort-button" th:attr="data-sort='got_role_mafia_num'">#mafia roles</button></th>
+                    <th><button class="sort-button" th:attr="data-sort='win_citizen_num'">win citizen</button></th>
+                    <th><button class="sort-button" th:attr="data-sort='win_mafia_num'">win mafia</button></th>
+                    <th><button class="sort-button" th:attr="data-sort='win_total_num'">win total</button></th>
+                    <th><button class="sort-button" th:attr="data-sort='played_games_num'">Played Games</button></th>
+                    <th><button class="sort-button" th:attr="data-sort='got_gold_num'">🥇</button></th>
+                    <th><button class="sort-button" th:attr="data-sort='got_silver_num'">🥈</button></th>
+                    <th><button class="sort-button" th:attr="data-sort='got_bronze_num'">🥉</button></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="player : ${playerList}">
+                    <td th:text="${player.nickname}"></td>
+                    <td th:text="${player.got_role_citizen_num}"></td>
+                    <td th:text="${player.got_role_mafia_num}"></td>
+                    <td th:text="${player.win_citizen_num}"></td>
+                    <td th:text="${player.win_mafia_num}"></td>
+                    <td th:text="${player.win_total_num}"></td>
+                    <td th:text="${player.played_games_num}"></td>
+                    <td th:text="${player.got_gold_num}"></td>
+                    <td th:text="${player.got_silver_num}"></td>
+                    <td th:text="${player.got_bronze_num}"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+</body>
+</html>
+<script>
+  // Initialize an object to store the current sort order for each column
+
+  var sortOrders = {
+
+    nickname: null,
+<!--    ranking_place: null,-->
+    got_role_citizen_num: null,
+    got_role_mafia_num: null,
+    win_citizen_num: null,
+    win_mafia_num: null,
+    win_total_num: null,
+    played_games_num: null,
+    got_gold_num: null,
+    got_silver_num: null,
+    got_bronze_num: null
+  };
+  var columnList = [
+
+    "nickname",
+<!--    "ranking_place",-->
+    "got_role_citizen_num",
+    "got_role_mafia_num",
+    "win_citizen_num",
+    "win_mafia_num",
+    "win_total_num",
+    "played_games_num",
+    "got_gold_num",
+    "got_silver_num",
+    "got_bronze_num"
+  ];
+
+  // Get all the sort buttons
+  var sortButtons = document.querySelectorAll('.sort-button');
+
+
+  // Add a click event listener to each button
+  sortButtons.forEach(function(button) {
+    button.addEventListener('click', function() {
+      // Get the column to sort by from the data-sort attribute
+      var column = button.getAttribute('data-sort');
+
+      // Get the table headers to find the index of the selected column
+      var tableHeaders = document.querySelectorAll('th');
+      var columnIndex = -1;
+      for (var i = 0; i < tableHeaders.length; i++) {
+        if (columnList[i] === column) {
+          columnIndex = i;
+          break;
+        }
+      }
+      // Get the table body rows
+      var tableBody = document.querySelector('tbody');
+      var rows = Array.from(tableBody.querySelectorAll('tr'));
+
+      // Determine the sort direction based on the current sort order for the column
+      var direction = sortOrders[column] === 'asc' ? 'desc' : 'asc';
+
+      // Set the sort order for the column to the current direction
+      sortOrders[column] = direction;
+
+      // Sort the rows based on the selected column and direction
+      rows.sort(function(row1, row2) {
+        var value1, value2;
+        if (column === 'nickname') {
+          value1 = row1.querySelector('td:nth-child(' + (columnIndex + 1) + ')').textContent;
+          value2 = row2.querySelector('td:nth-child(' + (columnIndex + 1) + ')').textContent;
+          return direction === 'asc' ? value1.localeCompare(value2) : value2.localeCompare(value1);
+        } else{
+          value1 = parseInt(row1.querySelector('td:nth-child(' + (columnIndex + 1) + ')').textContent);
+          value2 = parseInt(row2.querySelector('td:nth-child(' + (columnIndex + 1) + ')').textContent);
+          return direction === 'asc' ? value1 - value2 : value2 - value1;
+        }
+      });
+
+      // Update the table with the sorted rows
+      tableBody.innerHTML = '';
+      rows.forEach(function(row) {
+        tableBody.appendChild(row);
+      });
+
+      // Set the button label to indicate the current sort direction
+      button.textContent = button.textContent.replace(/\s+(▲|▼)/g, '') + ' ' + (direction === 'asc' ? '▲' : '▼');
+
+    });
+  });
+</script>
+<!--<!DOCTYPE html>-->
+<!--<html xmlns="http://www.w3.org/1999/xhtml"-->
+<!--      xmlns:h="http://java.sun.com/jsf/html"-->
+<!--      xmlns:p="http://primefaces.org/ui" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"-->
+<!--      xsi:schemaLocation="http://primefaces.org/ui ">-->
+<!--<head>-->
+<!--    <title>Person List</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--<h:form>-->
+<!--    <p:dataTable value="#{playerList}" var="player">-->
+<!--        <p:column headerText="Nickname">-->
+<!--            #{player.nickname}-->
+<!--        </p:column>-->
+<!--        <p:column headerText="Played Games">-->
+<!--            #{player.played_games_num}-->
+<!--        </p:column>-->
+<!--        <p:column headerText="Win games">-->
+<!--            #{player.win_total_num}-->
+<!--        </p:column>-->
+<!--        <p:column headerText="chat_id">-->
+<!--            #{player.chat_id}-->
+<!--        </p:column>-->
+<!--    </p:dataTable>-->
+<!--</h:form>-->
+<!--</body>-->
+<!--</html>-->
